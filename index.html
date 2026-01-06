@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Calendar</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <section class="calendar-wrapper">
+    <div class="calendar-sidenav custom-scrollbar">
+      <div class="sidenav-list ">
+        <div class="accordion" id="accordianCalendar">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                Calendar
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+              <div class="accordion-body p-0">
+                <div class="MiniCalendar">
+                  <div class="MiniCalendarBtns">
+                    <button id="dayViewBtn">Day</button>
+                    <button id="weekViewBtn" class="active">Week</button>
+                    <button id="calendarViewBtn">Month</button>
+                  </div>
+                  <div id="datepicker"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                Project
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
+              <div class="accordion-body p-0">
+                <div class="projectDiv">
+                  <ul class="projectLink custom-scrollbar">
+                    <li class="">
+                      <i class="material-icons yallow">done</i>
+                      <span>PR689</span>
+                      <span>Hunstwood </span>
+                    </li>
+                    <li class="">
+                      <i class="material-icons red">done</i>
+                      <span>PR511</span>
+                      <span>Basgram</span>
+                    </li>
+                    <li class="">
+                      <i class="material-icons blue">done</i>
+                      <span>PR489</span>
+                      <span>Alligon</span>
+                    </li>
+                    <li class="">
+                      <i class="material-icons green">done</i>
+                      <span>PR689</span>
+                      <span>GreenApp</span>
+                    </li>
+                    <li class="">
+                      <i class="material-icons orange ">done</i>
+                      <span>PR689</span>
+                      <span>Hunstwood </span>
+                    </li>
+                    <li class="">
+                      <i class="material-icons red">done</i>
+                      <span>PR511</span>
+                      <span>Basgram</span>
+                    </li>
+                    <li class="">
+                      <i class="material-icons blue">done</i>
+                      <span>PR489</span>
+                      <span>Alligon</span>
+                    </li>
+                    <li class="">
+                      <i class="material-icons green">done</i>
+                      <span>PR689</span>
+                      <span>GreenApp</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="addproject-btn">Add Project</button>
+    </div>
+
+    <div class="calendar-container">
+      <div class="worked-week-info">
+        <h6><span>Worked this week:</span> 189 hours</h6>
+        <button class="submit-time-btn">
+          <span>Submit time</span>
+          <i class="material-icons">arrow_forward_ios</i>
+        </button>
+      </div>
+      <div id="calendar" class="fullCalendar"></div>
+      <button class="btn btn-primary fabIcon-btn">
+        <i class="material-icons">add</i>
+      </button>
+    </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src='js/index.global.js'></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      var calendarEl = document.getElementById('calendar');
+
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        minTime: "07:00:00",
+        maxTime: "21:00:00",
+        initialView: 'timeGridWeek',
+        initialDate: '2023-11-13',
+        themeSystem: "bootstrap",
+        nowIndicator: true,
+        allDaySlot:false,
+        firstDay:1,
+        headerToolbar: {
+          left: 'today prev title next',
+          center: '',
+          right: ''
+        },
+        views: {
+          week: {
+            dayHeaderFormat: {
+              weekday: 'long',
+            },
+          },
+
+          month: {
+            dayHeaderFormat: {
+              weekday: 'long',
+            }
+          }
+        },
+        events: [
+          {
+            title: '<b>Basgram</b> - Code review',
+            start: '2023-11-13T08:12:00',
+            end: '2023-11-13T11:20:00',
+            rendering: 'background',
+            display: 'block',
+            color: '#ff8784',
+            extendedProps:{
+              projectTitle : "PR689"
+            }
+          },
+
+          {
+            title: '<b>Basgram</b> - extended share feature',
+            start: '2023-11-13T13:15:00',
+            end: '2023-11-13T16:00:00',
+            display: 'block',
+            rendering: 'background',
+            color: '#ff8784',
+            extendedProps:{
+              projectTitle : "PR689"
+            }
+          },
+
+          {
+            title: '<b>Huntswood</b> - setup',
+            start: '2023-11-14T09:50:00',
+            end: '2023-11-14T13:15:00',
+            display: 'block',
+            rendering: 'background',
+            color: '#ffc55f',
+            extendedProps:{
+              projectTitle : "PR689"
+            }
+          },
+
+          {
+            title: '<b>Basgram</b> - changes in notification',
+            start: '2023-11-14T13:30:00',
+            end: '2023-11-14T17:20:00',
+            display: 'block',
+            rendering: 'background',
+            color: '#ff8784',
+            extendedProps:{
+              projectTitle : "PR689"
+            }
+          },
+
+          {
+            title: '<b>Alligion</b> - disable agenda',
+            start: '2023-11-15T08:19:00',
+            end: '2023-11-15T13:30:00',
+            rendering: 'background',
+            display: 'block',
+            color: '#538fff',
+            extendedProps:{
+              projectTitle : "PR689"
+            }
+          },
+
+          {
+            title: '<b>Alligion</b> - fix importer',
+            start: '2023-11-16T08:30:00',
+            end: '2023-11-16T15:20:00',
+            display: 'block',
+            rendering: 'background',
+            color: '#538fff',
+            extendedProps:{
+              projectTitle : "PR689"
+            }
+          },
+        ],
+        eventContent: function(arg) {
+          return {
+            html: `<div class="eventtime-head"><p>${arg.event.start.getHours()+ ':' + arg.event.start.getMinutes()}</p><p>${arg.event.extendedProps.projectTitle}</p></div><div class="event-description"><p>${arg.event.title}</p></div>`
+          }
+        },
+      });
+
+      calendar.render();
+      var selectedWeek;//remember which week the user selected here
+      $('#datepicker').datepicker({
+        firstDay:1,
+      showOtherMonths:true,
+      onSelect: function(dateText){
+        calendar.gotoDate($(this).datepicker("getDate"));
+        selectedWeek = $.datepicker.iso8601Week(new Date(dateText));
+      } ,
+
+    //set the class 'week-highlight' for the whole week
+    beforeShowDay: function(d){
+        if (!selectedWeek) { return [true,''];}
+        if (selectedWeek == $.datepicker.iso8601Week(d)){
+              return [true,'week-highlight'];   
+        }
+        return [true,''];
+    }
+      });
+      // Add event listeners to switch views
+      document.getElementById('dayViewBtn').addEventListener('click', function () {
+        calendar.changeView('timeGridDay');
+      });
+
+      document.getElementById('weekViewBtn').addEventListener('click', function () {
+        calendar.changeView('timeGridWeek');
+      });
+
+      document.getElementById('calendarViewBtn').addEventListener('click', function () {
+        calendar.changeView('dayGridMonth');
+      });
+    });
+  </script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var buttons = document.querySelectorAll('.MiniCalendarBtns button');
+    buttons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        buttons.forEach(function (btn) {
+          btn.classList.remove('active');
+        });
+        button.classList.add('active');
+      });
+    });
+  });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,500 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-dark);
+}
+
+:root {
+    --text-dark: #273142;
+    --text-light: #9cb2cd;
+    --bg-light: #eff6ff;
+    --clr-blue: #538fff;
+    --clr-red: #ff8784;
+    --clr-yallow: #ffc55f;
+    --clr-green: #49dcbb;
+    --clr-border: #d7e3f1;
+}
+
+
+
+.calendar-wrapper {
+    display: flex;
+}
+
+/* side nav */
+
+.calendar-sidenav {
+    width: 350px;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+
+.sidenav-list {
+    padding: 25px;
+}
+
+.sidenav-list .accordion-item {
+    border: 0;
+}
+
+.sidenav-list .accordion-item .accordion-button {
+    padding: 15px 0;
+    font-size: 16px;
+    box-shadow: none;
+    outline: none;
+    color: var(--text-dark);
+}
+
+.sidenav-list .accordion-item .accordion-button:focus {
+    box-shadow: none;
+}
+
+.sidenav-list .accordion-item .accordion-button::after {
+    background: url();
+    content: '\e5cf';
+    font-family: 'Material Icons';
+    font-size: 20px;
+    color: var(--text-light);
+}
+
+.addproject-btn {
+    margin-top: auto;
+    border: 0;
+    background: var(--bg-light);
+    padding: 15px;
+    color: var(--clr-blue);
+    line-height: normal;
+    font-weight: 500;
+}
+
+.sidenav-list .accordion-button:not(.collapsed) {
+    background-color: transparent !important;
+}
+
+.MiniCalendarBtns {
+    background: var(--bg-light);
+    border-radius: 30px;
+    display: flex;
+    margin: 0 0 15px;
+}
+
+
+.MiniCalendarBtns button {
+    border: none;
+    background: none;
+    border-radius: 30px;
+    padding: 10px 30px;
+    color: var(--text-dark);
+    transition: all 0.3s ease-in-out;
+    font-size: 14px;
+    width: 100%;
+    line-height: normal;
+}
+
+.MiniCalendarBtns button.active,
+.MiniCalendarBtns button:hover {
+    background-color: var(--clr-blue);
+    color: #fff;
+   
+}
+
+/* date picker */
+
+.hasDatepicker .ui-widget.ui-widget-content {
+    border: none !important;
+    width: 100%;
+    padding: 0;
+}
+
+.ui-datepicker-header {
+    background-color: transparent;
+    border: none;
+    color: var(--text-dark);
+}
+
+.ui-widget-header a {
+    color: var(--text-dark);
+    border: 1px solid #dee2ec !important;
+    border-radius: 5px;
+    cursor: pointer;
+    top: 2px !important;
+}
+
+.ui-widget-header a.ui-datepicker-prev {
+    left: 2px !important;
+
+}
+
+.ui-widget-header a.ui-datepicker-next {
+    right: 2px !important;
+}
+
+
+.ui-widget-header a span {
+    display: none !important;
+}
+
+.ui-widget-header a:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Material Icons';
+    color: var(--text-light);
+    font-size: 10px;
+}
+
+.ui-widget-header a.ui-datepicker-prev:after {
+    content: '\e2ea';
+}
+
+.ui-widget-header a.ui-datepicker-next:after {
+    content: '\e5e1';
+}
+
+.ui-datepicker-title {
+    font-size: 16px;
+    color: var(--text-dark);
+    font-weight: normal;
+}
+
+.ui-datepicker-calendar th span {
+    font-size: 14px;
+    color: var(--text-light);
+    font-weight: normal;
+}
+
+.ui-datepicker td {
+    text-align: -webkit-center;
+}
+
+.ui-state-default {
+    border: none !important;
+    padding: 5px !important;
+    border-radius: 100%;
+    aspect-ratio: 1;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: transparent !important;
+    color: var(--text-light) !important;
+    line-height: normal;
+}
+
+.sidenav-list .ui-state-default {
+    aspect-ratio: auto;
+    width: 32px;
+    height: 32px;
+}
+
+.ui-state-default.ui-state-highlight,
+.ui-state-default.ui-state-active {
+    background: var(--clr-blue) !important;
+    color: #fff !important;
+}
+
+
+.projectLink {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 140px;
+    overflow: auto;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #cdd8e6;
+}
+
+.projectLink li {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.projectLink li span {
+    font-size: 14px;
+    color: var(--text-light);
+    font-weight: normal;
+}
+
+.projectLink i {
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    background: var(--clr-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    color: #fff;
+}
+
+.projectLink .yallow {
+    background: var(--clr-yallow);
+}
+
+.projectLink .red {
+    background: var(--clr-red);
+}
+
+.projectLink .blue {
+    background: var(--clr-blue);
+}
+
+.projectLink .green {
+    background: var(--clr-green);
+}
+
+/* side nav end */
+
+/* full calender */
+
+.calendar-container {
+    flex: 1;
+    margin-left: 350px;
+}
+
+.worked-week-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.worked-week-info h6 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.worked-week-info h6 span {
+    color: var(--text-light);
+}
+
+.submit-time-btn {
+    border: 0;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 5px 5px 12px;
+    gap: 5px;
+    border-radius: 30px;
+    color: #fff;
+    background: var(--clr-blue);
+    transition: all 0.3s ease-in-out;
+}
+
+.submit-time-btn:hover {
+    background: #2864d3;
+}
+
+.submit-time-btn i {
+    font-size: 8px;
+    background: rgb(0 0 0 / 20%);
+    color: #fff;
+    border-radius: 100%;
+    padding: 2px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#calendar {
+    border: 1px solid var(--clr-border);
+}
+
+#calendar .fc-toolbar.fc-header-toolbar {
+    padding: 20px;
+    background: var(--bg-light);
+    margin: 0;
+}
+
+#calendar .fc-header-toolbar .fc-toolbar-chunk {
+    display: flex;
+    align-items: center;
+}
+
+#calendar .fc-button {
+    background: #fff;
+    color: var(--text-dark);
+    border-color: var(--clr-border);
+    border-radius: 12px;
+    text-transform: capitalize;
+    font-size: 14px;
+    outline: none;
+}
+
+#calendar .fc-button:focus {
+    box-shadow: none;
+}
+
+#calendar .fc-button .fc-icon {
+    color: var(--text-light);
+}
+
+#calendar .fc-toolbar-title {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+#calendar .fc-col-header-cell.fc-day {
+    padding: 10px;
+}
+
+#calendar .fc-col-header-cell-cushion {
+    display: inline-block;
+    padding: 2px 4px;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: normal;
+    color: var(--text-dark);
+}
+
+#calendar.fc-theme-standard td,
+#calendar.fc-theme-standard th {
+    border-color: var(--clr-border);
+}
+
+#calendar .fc-timegrid-slot-minor {
+    border-top-style: dashed;
+    border-width: 2px;
+}
+
+#calendar .fc-timegrid-slot-label-cushion {
+    color: var(--text-light);
+    font-size: 14px;
+    font-weight: normal;
+}
+
+#calendar .fc-timegrid-event .fc-event-time {
+    font-size: 10px;
+    padding: 5px;
+    background: rgb(0 0 0 / 15%);
+}
+
+#calendar .fc-timegrid-event,
+#calendar .fc-timegrid-more-link {
+    border-radius: 7px;
+    border: 0;
+}
+
+#calendar .fc-timegrid-event .fc-event-main {
+    padding: 0;
+}
+
+#calendar .fc-v-event .fc-event-title-container {
+    padding: 5px;
+    font-size: 12px;
+}
+
+#calendar .eventtime-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 7px;
+    background: rgb(0 0 0 / 10%);
+    width: 100%;
+}
+
+#calendar .eventtime-head p {
+    margin: 0;
+    font-size: 10px;
+}
+
+#calendar .event-description {
+    padding: 5px 7px;
+}
+
+#calendar .event-description p {
+    margin: 0;
+    font-size: 12px;
+}
+
+#calendar .fc-daygrid-day-number {
+    padding: 4px;
+    position: relative;
+    z-index: 4;
+    text-decoration: none;
+    color: var(--text-light);
+}
+
+#calendar .fc-daygrid-event {
+    white-space: normal;
+    margin-bottom: 2px;
+}
+
+.fabIcon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    position: relative;
+    z-index: 1;
+    margin: -100px 40px 0 auto;
+    background: var(--clr-blue);
+    border: 0;
+}
+
+.btn:focus,
+.btn:active {
+    box-shadow: none;
+    outline: none;
+}
+
+#calendar .fc-day-today {
+    border: none !important;
+    background: var(--bg-light) !important;
+}
+
+#datepicker .week-highlight {
+    background: none;
+    background-color: var(--bg-light);
+}
+
+#datepicker .week-highlight:first-child {
+    border-radius: 30px 0 0 30px;
+}
+
+#datepicker .week-highlight:last-child {
+    border-radius: 0 30px 30px 0;
+}
+
+#ui-datepicker-div .ui-datepicker-current-day a {
+    border: 1px solid white;
+    background: springgreen;
+    font-weight: bold;
+    color: white;
+}
+
+
+
+/* full calender end */
